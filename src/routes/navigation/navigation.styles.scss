@@ -1,0 +1,35 @@
+.navigation-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    .navigation-links-container {
+        width: 90%;
+        height: 50px;
+        margin-top: 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .navigation-sections-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 14%;
+        }
+
+        .navigation-link {
+            text-decoration: none;
+
+            h1 {
+                font-size: 0.9rem;
+                line-height: 1.5;
+                letter-spacing: .3em;
+                color: #fff;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
