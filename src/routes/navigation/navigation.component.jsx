@@ -16,7 +16,7 @@ const Navigation = () => {
                         type: "spring",
                         stiffness: 100,
                         damping: 20,
-                        delay: 2.5
+                        delay: 4
                     }}
                     className='navigation-links-container'>
                     <div className='navigation-logo-container'>
@@ -30,7 +30,7 @@ const Navigation = () => {
             </div>
             <div>
                 <CustomCursor
-                    targets={['.link', 'a', 'button']}
+                    targets={['.link', 'a', 'Link', 'button']}
                     customClass='custom-cursor'
                     dimensions={50}
                     fill='#FFF'

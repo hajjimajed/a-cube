@@ -36,3 +36,90 @@
         }
     }
 }
+
+@media(max-width:1100px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 16%;
+    }
+}
+
+@media(max-width:1000px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 18%;
+    }
+}
+
+@media(max-width:900px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 20%;
+    }
+
+    .navigation-container .navigation-links-container {
+        margin-top: 60px;
+    }
+}
+
+@media(max-width:800px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 22%;
+    }
+
+    .navigation-container .navigation-links-container {
+        margin-top: 40px;
+    }
+}
+
+@media(max-width:700px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 24%;
+    }
+
+    .navigation-container .navigation-links-container {
+        margin-top: 30px;
+    }
+}
+
+@media(max-width:600px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 26%;
+    }
+
+    .navigation-container .navigation-links-container {
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:500px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 28%;
+    }
+}
+
+@media(max-width:450px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 30%;
+    }
+}
+
+@media(max-width:400px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 32%;
+    }
+
+    .navigation-container .navigation-links-container {
+        width: 95%;
+    }
+}
+
+
+@media(max-width:350px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 36%;
+    }
+}
+
+@media(max-width:300px) {
+    .navigation-container .navigation-links-container .navigation-sections-container {
+        width: 40%;
+    }
+}

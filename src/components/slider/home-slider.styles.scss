@@ -4,12 +4,6 @@
     height: 100%;
     overflow: hidden;
 
-    .act {
-        position: absolute;
-        bottom: 20%;
-        left: 30%;
-    }
-
     .slide {
         position: absolute;
         top: 0;
@@ -17,15 +11,15 @@
         width: 100%;
         height: 100%;
         opacity: 0;
-        transition: all 1s ease-in-out;
+        transition: all 1.5s ease-in-out;
 
         &.active {
             opacity: 1;
 
             .slide-title {
                 opacity: 1;
-                transform: translateY(0);
-                transition-delay: 1s; // delay the appearance of the title by 0.5s
+                transform: translateY(0) translateX(-50%);
+                transition-delay: 1.5s; // delay the appearance of the title by 0.5s
             }
         }
 
@@ -44,67 +38,123 @@
         }
 
         .slide-title {
+            text-decoration: none;
+            color: #fff;
             position: absolute;
-            bottom: 50%;
+            bottom: 48%;
             left: 50%;
-            padding: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 10px;
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.5s ease-in-out;
+            transform: translateY(5px) translateX(-50%);
+            transition: all 0.3s ease-in-out;
+            transition-delay: transform 0s;
+            z-index: 2;
         }
     }
 
     .prev-btn,
     .next-btn {
+        background-color: transparent;
+        border: none;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        text-transform: uppercase;
+        color: #c2c2c2;
+    }
+
+    .prev-button-container {
+        width: 25%;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        z-index: 1;
-        background-color: transparent;
-        border: none;
-        font-size: 2rem;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-            color: #fff;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-    }
-
-    .slide-timer {
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 10px;
-        background-color: #4f4f4f;
+        left: 70px;
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
 
-        .progress-timer {
-            height: 100%;
-            background-color: #fff;
-            transform-origin: left;
-            transition: 0s ease-in-out all;
+    .next-button-container {
+        width: 25%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1;
+    }
+
+    .button-container-line {
+        width: 80%;
+        height: 1px;
+        background-color: #ffffff5f;
+    }
+
+    .progress-status-container {
+        width: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        right: 70px;
+        bottom: 80px;
+        z-index: 2;
+
+        .status-number {
+            h1 {
+                font-size: 0.9rem;
+                letter-spacing: 5px;
+                font-weight: 500;
+            }
         }
 
-        &.over .progress-timer {
-            transform: scaleX(1);
-            transition: 0.1s ease-in-out all;
+        .status-total {
+            h1 {
+                font-size: 0.9rem;
+                letter-spacing: 5px;
+                font-weight: 500;
+            }
+        }
+
+        .slide-timer {
+            width: 50px;
+            height: 1px;
+            background-color: #4f4f4f;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+            .progress-timer {
+                height: 100%;
+                background-color: #fff;
+                transform-origin: left;
+                transition: 0s ease-in-out all;
+            }
+
+            &.over .progress-timer {
+                transform: scaleX(1);
+                transition: 0.1s ease-in-out all;
+            }
         }
     }
 
-    .prev-btn {
-        left: 20px;
-    }
 
-    .next-btn {
-        right: 20px;
+
+}
+
+
+
+@media(max-width:750px) {
+    .slider .progress-status-container {
+        right: 42%;
+        bottom: 40%;
     }
 }
