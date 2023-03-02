@@ -4,6 +4,8 @@
     justify-content: center;
     align-items: center;
     z-index: 10;
+    position: absolute;
+    top: 0;
 
     .navigation-links-container {
         width: 90%;
@@ -30,6 +32,7 @@
                 color: #fff;
                 text-transform: capitalize;
             }
+
         }
     }
 }

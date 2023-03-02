@@ -1,0 +1,16 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+
+    .shadow {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        box-shadow: inset 0px 0 200px 250px rgba(0, 0, 0, 0.5);
+    }
+
+}
