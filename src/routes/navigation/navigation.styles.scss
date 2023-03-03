@@ -87,6 +87,10 @@
     .navigation-container .navigation-links-container {
         margin-top: 20px;
     }
+
+    .navigation-container .navigation-links-container .navigation-link h1 {
+        font-size: 0.7rem;
+    }
 }
 
 @media(max-width:500px) {

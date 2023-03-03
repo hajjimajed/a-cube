@@ -1,7 +1,10 @@
 import './home-slider.styles.scss'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
+import { ReactComponent as LeftArrow } from '../../assets/arrow-left.svg';
+import { ReactComponent as RightArrow } from '../../assets/arrow-right.svg';
 
 const slides = [
     {
@@ -30,6 +33,37 @@ const HomeSlider = () => {
     const slideTime = 4000; // in milliseconds
     const progressInterval = 10; // in milliseconds
     const [progressWidth, setProgressWidth] = useState(0);
+
+    const sliderRef = useRef();
+
+    const handleTouchStart = (e) => {
+        const touchStartX = e.touches[0].clientX;
+        sliderRef.current.addEventListener("touchmove", handleTouchMove);
+        sliderRef.current.addEventListener("touchend", handleTouchEnd);
+
+        function handleTouchMove(e) {
+            const touchMoveX = e.touches[0].clientX;
+            const diff = touchStartX - touchMoveX;
+            if (diff > 0) {
+                handleNextSlide();
+            } else {
+                handlePrevSlide();
+            }
+        }
+
+        function handleTouchEnd() {
+            sliderRef.current.removeEventListener("touchmove", handleTouchMove);
+            sliderRef.current.removeEventListener("touchend", handleTouchEnd);
+        }
+    };
+
+    const handlePrevSlide = () => {
+        setActiveSlide((activeSlide - 1 + slides.length) % slides.length);
+    };
+
+    const handleNextSlide = () => {
+        setActiveSlide((activeSlide + 1) % slides.length);
+    };
 
     const [activeSlideId, setActiveSlideId] = useState(0);
     useEffect(() => {
@@ -70,6 +104,7 @@ const HomeSlider = () => {
         return () => clearTimeout(timer);
     }, [activeSlide]);
 
+
     useEffect(() => {
         let progressTimer;
         let progress = 0;
@@ -95,6 +130,8 @@ const HomeSlider = () => {
 
     return (
         <motion.div
+            onTouchStart={handleTouchStart}
+            ref={sliderRef}
             initial={{ scale: 1.2 }}
             animate={{ scale: 1 }}
             transition={{
@@ -102,6 +139,14 @@ const HomeSlider = () => {
                 delay: 0
             }}
             className="slider">
+            <motion.div
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1, }}
+                transition={{
+                    delay: 1.5,
+                    duration: 1,
+                }}
+                className='shadow'></motion.div>
             {slides.map((slide, index) => (
                 <div
                     key={index}
@@ -190,6 +235,35 @@ const HomeSlider = () => {
                     className="next-btn" onClick={nextSlide}>
                     next
                 </motion.button>
+            </div>
+
+            <div className='slider-arrow-container'>
+                <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    style={{ transformOrigin: "right" }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 20,
+                        delay: 2.5
+                    }}
+                >
+                    <LeftArrow onClick={prevSlide} className='slider-arrow-icon' />
+                </motion.div>
+                <motion.div
+                    initial={{ scaleX: 0 }}
+                    animate={{ scaleX: 1 }}
+                    style={{ transformOrigin: "left" }}
+                    transition={{
+                        type: "spring",
+                        stiffness: 100,
+                        damping: 20,
+                        delay: 2.5
+                    }}
+                >
+                    <RightArrow onClick={nextSlide} className='slider-arrow-icon' />
+                </motion.div>
             </div>
 
 
