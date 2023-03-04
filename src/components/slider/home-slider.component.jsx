@@ -1,7 +1,8 @@
 import './home-slider.styles.scss'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+
 
 import { ReactComponent as LeftArrow } from '../../assets/arrow-left.svg';
 import { ReactComponent as RightArrow } from '../../assets/arrow-right.svg';
@@ -10,24 +11,30 @@ const slides = [
     {
         id: 1,
         image:
-            "https://i.ibb.co/423BzsF/appartement.png",
+            "https://images.unsplash.com/photo-1647633392140-909abe70a642?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1267&q=80",
         title: "park mansion",
     },
     {
         id: 2,
         image:
-            "https://i.ibb.co/tMbzrBP/4k-render-1.png",
+            "https://images.unsplash.com/photo-1677658281796-35c5c12d82b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
         title: "hikawa gardens",
     },
     {
         id: 3,
         image:
-            "https://i.ibb.co/wdHYyxV/wedding-store-3.png",
+            "https://images.unsplash.com/photo-1647633391986-4614f2ee0ca4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1267&q=80",
         title: "one avenue",
     },
 ];
 
-const HomeSlider = () => {
+const HomeSlider = ({ slides }) => {
+
+
+
+
+
+
     const [activeSlide, setActiveSlide] = useState(0);
     const [slideTimeOver, setSlideTimeOver] = useState(false);
     const slideTime = 4000; // in milliseconds
@@ -128,6 +135,8 @@ const HomeSlider = () => {
         };
     }, [activeSlide]);
 
+
+
     return (
         <motion.div
             onTouchStart={handleTouchStart}
@@ -136,7 +145,7 @@ const HomeSlider = () => {
             animate={{ scale: 1 }}
             transition={{
                 duration: 1,
-                delay: 0
+                delay: 0,
             }}
             className="slider">
             <motion.div
@@ -157,7 +166,7 @@ const HomeSlider = () => {
                                 ? 'next'
                                 : ''}`}
                 >
-                    <img src={slide.image} alt={slide.title} />
+                    <img className='slide-image' src={slide.cover} alt={slide.name} />
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -166,7 +175,7 @@ const HomeSlider = () => {
                             duration: 0.5
                         }}
                     >
-                        <Link to='/' className="slide-title">{slide.title}</Link>
+                        <Link to='/' className="slide-title">{slide.name}</Link>
                     </motion.div>
                 </div>
             ))}

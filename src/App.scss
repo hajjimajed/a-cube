@@ -32,7 +32,34 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 999;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #555;
+  }
+
+  i {
+    color: #fff;
+    font-size: 1.2rem;
   }
 }
