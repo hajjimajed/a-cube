@@ -122,6 +122,65 @@
     .about-footer {
         width: 100%;
         height: 60vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-color: #000000;
+        cursor: pointer;
+
+    }
+
+    .contact-container {
+        width: 50%;
+        height: 25%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+            font-size: 20px;
+            line-height: 32px;
+            font-weight: 600;
+            text-transform: capitalize;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            font-size: 16px;
+            line-height: 26px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .contact-filling {
+            width: 70%;
+            height: 1px;
+            background-color: #ffffff4c;
+            transition: 0.3s ease-in all;
+            transform-origin: left;
+
+
+            div {
+                width: 100%;
+                height: 100%;
+                background-color: #ffffff;
+                transform-origin: left;
+            }
+        }
+
+        .letter-div {
+            margin-left: 50px;
+
+            .letter-icon {
+                width: 30px;
+                height: auto;
+
+                path {
+                    fill: #ffffff;
+                }
+            }
+        }
     }
 }

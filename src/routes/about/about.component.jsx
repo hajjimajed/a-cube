@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import './about.styles.scss';
 import $ from 'jquery';
+import { motion } from 'framer-motion';
+
+import { ReactComponent as Letter } from '../../assets/letter.svg';
 
 const About = () => {
     const emailRef = useRef(null);
@@ -34,6 +37,32 @@ const About = () => {
         };
     }, []);
 
+
+    const containerVariants = {
+        hover: { scaleX: 1 },
+        initial: { scaleX: 1 }
+    };
+
+    const childVariants = {
+        hover: { scaleX: 0.95 },
+        initial: { scaleX: 1 }
+    };
+
+    const childchildVariants = {
+        hover: { scaleX: 1 },
+        initial: { scaleX: 0 }
+    };
+    const letterVariants = {
+        hover: { translateX: -10 },
+        initial: { translateX: 0 }
+    };
+
+    const email = 'email@gmail.com'
+    const handleEmailClick = () => {
+        window.location.href = `mailto:${email}`;
+    };
+
+
     return (
         <div className='about-container'>
             <div className='about-main'>
@@ -64,7 +93,25 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <div className='about-footer'></div>
+            <motion.div
+                onClick={handleEmailClick}
+                variants={containerVariants}
+                initial="initial"
+                whileHover="hover"
+                className='about-footer'>
+                <div className='contact-container'>
+                    <h2>04</h2>
+                    <h1>hire us</h1>
+                    <motion.div className='contact-filling'
+                        variants={childVariants}
+                    >
+                        <motion.div variants={childchildVariants}></motion.div>
+                    </motion.div>
+                    <motion.div className='letter-div' variants={letterVariants}>
+                        <Letter className='letter-icon' />
+                    </motion.div>
+                </div>
+            </motion.div>
         </div>
     );
 };
