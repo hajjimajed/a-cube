@@ -1,0 +1,24 @@
+.all-container {
+    margin-top: 250px;
+    width: 100vw;
+    display: flex;
+
+
+    .left-projects-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right-projects-section {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 400px;
+    }
+
+}

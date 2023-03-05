@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import About from './routes/about/about.component';
+import All from './routes/all/all.component';
 import Loader from './components/loader/loader.component';
 
 import '../src/fonts/Butler-Black.woff';
@@ -38,6 +39,7 @@ function App() {
             <Route path="/" element={<Navigation />}>
               <Route index element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/works" element={<All />} />
             </Route>
           </Routes>
         </div>

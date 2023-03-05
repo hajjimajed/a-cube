@@ -1,0 +1,56 @@
+.project-preview-container {
+    width: 70%;
+    height: 300px;
+    position: relative;
+    margin-bottom: 300px;
+
+
+    .project-preview-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 90%;
+        background: url('https://asmobius.co.jp/asm_cp/wp-content/uploads/2019/02/main-1.jpg');
+        background-size: cover;
+        cursor: pointer;
+        transition: 0.4s ease-in opacity;
+        opacity: 0.4;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .project-preview-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: absolute;
+        bottom: 50%;
+        right: 15%;
+        width: 100%;
+
+        h1,
+        h2 {
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            line-height: 41px;
+            letter-spacing: 8px;
+            font-weight: 400;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 4px;
+            font-weight: 400;
+            color: rgba($color: #ffffff, $alpha: 0.6);
+        }
+    }
+}

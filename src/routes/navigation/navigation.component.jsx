@@ -23,7 +23,7 @@ const Navigation = () => {
                         <Link to='/' className='navigation-link'><h1>logo</h1></Link>
                     </div>
                     <div className='navigation-sections-container'>
-                        <Link className='navigation-link'><h1>all</h1></Link>
+                        <Link to='/works' className='navigation-link'><h1>all</h1></Link>
                         <Link to='/about' className='navigation-link'><h1>about</h1></Link>
                     </div>
                 </motion.div>
