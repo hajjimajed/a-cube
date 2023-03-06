@@ -188,13 +188,13 @@ const HomeSlider = ({ slides }) => {
                 }}
                 className='progress-status-container'>
                 <div className='status-number'>
-                    <h1>{activeSlide + 1}</h1>
+                    <h1>0{activeSlide + 1}</h1>
                 </div>
                 <div className="slide-timer">
                     <div className={`progress-timer${slideTimeOver ? ' over' : ''}`} style={{ width: `${progressWidth}%` }}></div>
                 </div>
                 <div className='status-total'>
-                    <h1>3</h1>
+                    <h1>07</h1>
                 </div>
             </motion.div>
 

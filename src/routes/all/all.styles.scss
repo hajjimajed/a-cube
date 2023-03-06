@@ -1,7 +1,10 @@
 .all-container {
     margin-top: 250px;
-    width: 100vw;
-    display: flex;
+    width: 90vw;
+    padding: 0 5vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
 
 
     .left-projects-section {

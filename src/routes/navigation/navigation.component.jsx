@@ -1,11 +1,17 @@
 import './navigation.styles.scss'
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import CustomCursor from 'custom-cursor-react';
 import 'custom-cursor-react/dist/index.css';
 import { motion } from 'framer-motion';
 
 const Navigation = () => {
+    const location = useLocation();
+
+    const navLinkStyle = {
+        color: location.pathname === '/project' ? '#000000' : '#ffffff'
+    };
+
     return (
         <>
             <div className='navigation-container'>
@@ -18,13 +24,14 @@ const Navigation = () => {
                         damping: 20,
                         delay: 4
                     }}
+
                     className='navigation-links-container'>
                     <div className='navigation-logo-container'>
-                        <Link to='/' className='navigation-link'><h1>logo</h1></Link>
+                        <Link to='/' className='navigation-link'><h1 style={navLinkStyle}>logo</h1></Link>
                     </div>
                     <div className='navigation-sections-container'>
-                        <Link to='/works' className='navigation-link'><h1>all</h1></Link>
-                        <Link to='/about' className='navigation-link'><h1>about</h1></Link>
+                        <Link to='/works' className='navigation-link'><h1 style={navLinkStyle}>all</h1></Link>
+                        <Link to='/about' className='navigation-link'><h1 style={navLinkStyle}>about</h1></Link>
                     </div>
                 </motion.div>
             </div>

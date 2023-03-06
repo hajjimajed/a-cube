@@ -5,6 +5,7 @@ import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import About from './routes/about/about.component';
 import All from './routes/all/all.component';
+import ProjectView from './routes/project-view/project-view.component';
 import Loader from './components/loader/loader.component';
 
 import '../src/fonts/Butler-Black.woff';
@@ -40,6 +41,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/works" element={<All />} />
+              <Route path="/project" element={<ProjectView />} />
             </Route>
           </Routes>
         </div>
