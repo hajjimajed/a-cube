@@ -7,9 +7,10 @@ const ProjectParallax = ({ project }) => {
 
     const { name, id, cover } = project;
 
+
     return (
         <div className='project-preview-container'>
-            <Link to='/'>
+            <Link to={`/works/${name}`}>
                 <Parallax translateY={[-50, 50]}
                     style={{
                         backgroundImage: `url(${cover})`

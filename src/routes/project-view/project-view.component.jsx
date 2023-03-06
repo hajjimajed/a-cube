@@ -1,7 +1,10 @@
 import './project-view.styles.scss'
 import { Parallax } from 'react-scroll-parallax';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
+import { ProjectsContext } from '../../contexts/projects.context'
+import { useParams } from 'react-router-dom';
 import { motion, useViewportScroll, useTransform } from 'framer-motion';
+
 
 const ProjectView = () => {
 
@@ -22,7 +25,7 @@ const ProjectView = () => {
                     setLastSection(visibleSectionId);
                 }
             },
-            { threshold: 0.5 }
+            { threshold: 0.3 }
         );
         const sections = document.querySelectorAll(".project-img");
         sections.forEach((section) => {
@@ -49,6 +52,36 @@ const ProjectView = () => {
     const { scrollYProgress } = useViewportScroll();
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
+
+
+    const { projectsMap } = useContext(ProjectsContext);
+    const [currentUrl, setCurrentUrl] = useState('');
+    const [currentProject, setCurrentProject] = useState({});
+
+    useEffect(() => {
+        // Get the current URL path name
+        const pathName = window.location.pathname;
+
+        // Extract the last part of the path name after the last '/'
+        const urlPart = pathName.substring(pathName.lastIndexOf('/') + 1);
+
+        // Set the state variable to the extracted URL part
+        setCurrentUrl(urlPart.replace(/%20/g, ' '));
+
+        // Find the project in the projects map with a matching name
+        const matchingProject = projectsMap.find(project => project.name === currentUrl);
+
+        // Update the current project state variable if a matching project is found
+        if (matchingProject) {
+            setCurrentProject(matchingProject);
+        }
+    }, [currentUrl, projectsMap]);
+
+    const { name, id, description1, description2, images } = currentProject;
+
+
+
+
     return (
 
         <div className='project-view-container'>
@@ -73,19 +106,19 @@ const ProjectView = () => {
             </div>
             <Parallax translateY={[-50, 50]} className='project-view-header'>
                 <Parallax y={[80, -80]} className='title'>
-                    <h1>title title title</h1>
+                    <h1>{name}</h1>
                 </Parallax>
             </Parallax>
             <Parallax y={[10, -10]} className='project-view-main'>
                 <div className='project-description'>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis veritatis commodi sit, molestias eaque delectus explicabo, quasi, velit qui voluptatem voluptatibus. Totam consequatur quas ipsa maiores nam dolorum libero autem.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis veritatis commodi sit, molestias eaque delectus explicabo, quasi, velit qui voluptatem voluptatibus. Totam consequatur quas ipsa maiores nam dolorum libero autem.</p>
+                    <p>{description1}</p>
+                    <p>{description2}</p>
                 </div>
-                <par className='project-images'>
-                    <img id='1' className='project-img' src="https://images.unsplash.com/photo-1678101629498-26e7ac3e74f6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="" />
-                    <img id='2' className='project-img' src="https://images.unsplash.com/photo-1678005216513-6f6036562409?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80" alt="" />
-                    <img id='3' className='project-img' src="https://images.unsplash.com/photo-1661956602926-db6b25f75947?ixlib=rb-4.0.3&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=398&q=80" alt="" />
-                </par>
+                <div className='project-images'>
+                    {images &&
+                        images.map(img => <img key={img} src={img} alt="" />)
+                    }
+                </div>
             </Parallax>
         </div>
 

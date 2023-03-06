@@ -41,7 +41,7 @@ function App() {
               <Route index element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/works" element={<All />} />
-              <Route path="/project" element={<ProjectView />} />
+              <Route path="/works/:projectId" element={<ProjectView />} />
             </Route>
           </Routes>
         </div>

@@ -9,7 +9,7 @@ const Navigation = () => {
     const location = useLocation();
 
     const navLinkStyle = {
-        color: location.pathname === '/project' ? '#000000' : '#ffffff'
+        color: location.pathname === '/works/:' ? '#000000' : '#ffffff'
     };
 
     return (

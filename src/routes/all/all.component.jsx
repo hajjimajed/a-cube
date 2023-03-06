@@ -19,7 +19,7 @@ const All = () => {
         <div className='all-container'>
 
             {
-                projects.map((project) => <ProjectParallax project={project} />)
+                projects.map((project) => <ProjectParallax key={project.id} project={project} />)
             }
 
         </div>
