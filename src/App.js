@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { animateScroll } from 'react-scroll';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import About from './routes/about/about.component';
 import All from './routes/all/all.component';
 import ProjectView from './routes/project-view/project-view.component';
 import Loader from './components/loader/loader.component';
+import CustomCursor from 'custom-cursor-react';
 
 import '../src/fonts/Butler-Black.woff';
 import './App.scss';
@@ -17,7 +18,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 10);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -29,6 +30,7 @@ function App() {
       smooth: true, // Increase duration to slow down scrolling
     });
   };
+
 
   return (
     <>
@@ -46,6 +48,22 @@ function App() {
           </Routes>
         </div>
       )}
+
+      <div>
+        <CustomCursor
+          targets={['.link', 'a', 'Link', 'button', 'section', '.project-preview-image']}
+          customClass='custom-cursor'
+          dimensions={50}
+          fill='#FFF'
+          smoothness={{
+            movement: 0.05,
+            scale: 0.2,
+            opacity: 0.2,
+          }}
+          targetOpacity={0.4}
+          targetScale={3}
+        />
+      </div>
     </>
   );
 }

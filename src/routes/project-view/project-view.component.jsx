@@ -8,49 +8,7 @@ import { motion, useViewportScroll, useTransform } from 'framer-motion';
 
 const ProjectView = () => {
 
-    const [currentSection, setCurrentSection] = useState(0);
-    const [lastSection, setLastSection] = useState(0);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                let visibleSectionId = currentSection;
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        visibleSectionId = Number(entry.target.id);
-                    }
-                });
-                setCurrentSection(visibleSectionId);
-                if (visibleSectionId > lastSection || visibleSectionId === 0) {
-                    setLastSection(visibleSectionId);
-                }
-            },
-            { threshold: 0.3 }
-        );
-        const sections = document.querySelectorAll(".project-img");
-        sections.forEach((section) => {
-            observer.observe(section);
-        });
-        return () => observer.disconnect();
-    }, [currentSection, lastSection]);
-
-    const handleScroll = () => {
-        const sections = document.querySelectorAll(".project-img");
-        sections.forEach((section) => {
-            if (section.getBoundingClientRect().top < window.innerHeight / 2) {
-                setLastSection(Number(section.id));
-            }
-        });
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
-
-
-    const { scrollYProgress } = useViewportScroll();
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
 
 
@@ -80,13 +38,15 @@ const ProjectView = () => {
     const { name, id, description1, description2, images } = currentProject;
 
 
+    const { scrollYProgress } = useViewportScroll();
+    const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
+
 
 
     return (
 
         <div className='project-view-container'>
             <div className='project-images-indicator'>
-                <h1>0{currentSection}</h1>
                 <div className="wrapper">
                     <motion.div
                         className="container"
@@ -102,14 +62,13 @@ const ProjectView = () => {
                         />
                     </motion.div>
                 </div>
-                <h1>03</h1>
             </div>
-            <Parallax translateY={[-50, 50]} className='project-view-header'>
+            <Parallax id='section' translateY={[-50, 50]} className='project-view-header'>
                 <Parallax y={[80, -80]} className='title'>
                     <h1>{name}</h1>
                 </Parallax>
             </Parallax>
-            <Parallax y={[10, -10]} className='project-view-main'>
+            <Parallax id='section' y={[10, -10]} className='project-view-main'>
                 <div className='project-description'>
                     <p>{description1}</p>
                     <p>{description2}</p>

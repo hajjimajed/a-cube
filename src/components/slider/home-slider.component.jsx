@@ -7,33 +7,15 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as LeftArrow } from '../../assets/arrow-left.svg';
 import { ReactComponent as RightArrow } from '../../assets/arrow-right.svg';
 
-const slides = [
-    {
-        id: 1,
-        image:
-            "https://images.unsplash.com/photo-1647633392140-909abe70a642?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1267&q=80",
-        title: "park mansion",
-    },
-    {
-        id: 2,
-        image:
-            "https://images.unsplash.com/photo-1677658281796-35c5c12d82b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80",
-        title: "hikawa gardens",
-    },
-    {
-        id: 3,
-        image:
-            "https://images.unsplash.com/photo-1647633391986-4614f2ee0ca4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1267&q=80",
-        title: "one avenue",
-    },
-];
+
 
 const HomeSlider = ({ slides }) => {
 
+    const [numberOfObjects, setNumberOfObjects] = useState(0);
 
-
-
-
+    useEffect(() => {
+        setNumberOfObjects(slides.length);
+    }, [slides]);
 
     const [activeSlide, setActiveSlide] = useState(0);
     const [slideTimeOver, setSlideTimeOver] = useState(false);
@@ -175,7 +157,7 @@ const HomeSlider = ({ slides }) => {
                             duration: 0.5
                         }}
                     >
-                        <Link to='/' className="slide-title">{slide.name}</Link>
+                        <Link to={`/works/${slide.name}`} className="slide-title">{slide.name}</Link>
                     </motion.div>
                 </div>
             ))}
@@ -188,13 +170,13 @@ const HomeSlider = ({ slides }) => {
                 }}
                 className='progress-status-container'>
                 <div className='status-number'>
-                    <h1>0{activeSlide + 1}</h1>
+                    <h1>{activeSlide + 1}</h1>
                 </div>
                 <div className="slide-timer">
                     <div className={`progress-timer${slideTimeOver ? ' over' : ''}`} style={{ width: `${progressWidth}%` }}></div>
                 </div>
                 <div className='status-total'>
-                    <h1>07</h1>
+                    <h1>{numberOfObjects}</h1>
                 </div>
             </motion.div>
 

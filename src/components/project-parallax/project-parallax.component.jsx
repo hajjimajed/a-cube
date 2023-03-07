@@ -11,18 +11,18 @@ const ProjectParallax = ({ project }) => {
     return (
         <div className='project-preview-container'>
             <Link to={`/works/${name}`}>
-                <Parallax translateY={[-50, 50]}
+                <Parallax translateY={[-40, 40]}
                     style={{
                         backgroundImage: `url(${cover})`
                     }}
                     className='project-preview-image'></Parallax>
             </Link>
-            <Parallax y={[10, -10]} className='project-preview-details'>
-                <Link className='project-link'>
+            <div className='project-preview-details'>
+                <Link to={`/works/${name}`} className='project-link'>
                     <h2>{id}</h2>
                     <h1>{name}</h1>
                 </Link>
-            </Parallax>
+            </div>
         </div>
     );
 };

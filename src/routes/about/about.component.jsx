@@ -218,7 +218,7 @@ const About = () => {
                     </div>
                 </div>
             </div>
-            <motion.div
+            <motion.section
                 onClick={handleEmailClick}
                 variants={containerVariants}
                 initial="initial"
@@ -236,7 +236,7 @@ const About = () => {
                         <Letter className='letter-icon' />
                     </motion.div>
                 </div>
-            </motion.div>
+            </motion.section>
         </div>
     );
 };

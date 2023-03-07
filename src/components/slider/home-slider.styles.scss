@@ -11,11 +11,14 @@
         left: 50%;
         transform: translateX(-50%) scaleX(3) scaleY(3);
         border-radius: 50%;
+        background-color: #00000036;
         box-shadow: 0px 0px 1000px 220px rgba(0, 0, 0, 0.8) inset;
         -webkit-box-shadow: 0px 0px 1000px 220px rgba(0, 0, 0, 0.8) inset;
         -moz-box-shadow: 0px 0px 1000px 220px rgba(0, 0, 0, 0.8) inset;
         z-index: 2;
     }
+
+
 
     .slider-arrow-container {
         width: 90%;
@@ -77,9 +80,10 @@
             text-decoration: none;
             color: #fff;
             position: absolute;
-            bottom: 49%;
+            bottom: 47%;
             left: 50%;
-            font-size: 1.3rem;
+            font-size: 1.6rem;
+            line-height: 3rem;
             text-align: center;
             font-weight: bold;
             text-transform: uppercase;
@@ -186,6 +190,8 @@
 
 
 }
+
+
 
 @media(max-width:1100px) {
     .slider .shadow {
