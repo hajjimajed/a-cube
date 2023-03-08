@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 10000);
+    }, 6500);
 
     return () => clearTimeout(timer);
   }, []);
@@ -37,7 +37,7 @@ function App() {
       {isLoading ? (
         <Loader />
       ) : (
-        <div className="App" onWheel={handleScroll}>
+        <div className="App" onScroll={handleScroll} onWheel={handleScroll}>
           <Routes>
             <Route path="/" element={<Navigation />}>
               <Route index element={<Home />} />

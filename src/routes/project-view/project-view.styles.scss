@@ -60,11 +60,21 @@
         position: absolute;
         top: 0;
 
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+        }
+
         .title {
             h1 {
-                font-size: 30px;
+                font-size: 40px;
                 line-height: 50px;
-                font-weight: 400;
+                font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 10px;
                 margin: 0;
@@ -87,7 +97,7 @@
         align-items: center;
 
         .project-description {
-            width: 70%;
+            width: 65%;
 
             p {
                 font-size: 18px;
@@ -96,6 +106,7 @@
                 letter-spacing: 1px;
                 text-transform: capitalize;
                 color: rgba($color: #000000, $alpha: 0.6);
+                text-align: left;
             }
         }
 
@@ -110,4 +121,14 @@
             }
         }
     }
+
+    .progress {
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: 10px;
+        background: #00000086;
+        bottom: 0;
+    }
+
 }

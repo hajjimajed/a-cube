@@ -19,7 +19,7 @@ const ProjectParallax = ({ project }) => {
             </Link>
             <div className='project-preview-details'>
                 <Link to={`/works/${name}`} className='project-link'>
-                    <h2>{id}</h2>
+                    <h2>0{id}</h2>
                     <h1>{name}</h1>
                 </Link>
             </div>

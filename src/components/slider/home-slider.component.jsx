@@ -118,15 +118,14 @@ const HomeSlider = ({ slides }) => {
     }, [activeSlide]);
 
 
-
     return (
         <motion.div
             onTouchStart={handleTouchStart}
             ref={sliderRef}
-            initial={{ scale: 1.2 }}
+            initial={{ scale: 1.1 }}
             animate={{ scale: 1 }}
             transition={{
-                duration: 1,
+                duration: 0.5,
                 delay: 0,
             }}
             className="slider">
@@ -157,7 +156,7 @@ const HomeSlider = ({ slides }) => {
                             duration: 0.5
                         }}
                     >
-                        <Link to={`/works/${slide.name}`} className="slide-title">{slide.name}</Link>
+                        <Link to={`/works/${slide.name}`} className="slide-title"><h1>{slide.name}</h1></Link>
                     </motion.div>
                 </div>
             ))}
@@ -170,13 +169,13 @@ const HomeSlider = ({ slides }) => {
                 }}
                 className='progress-status-container'>
                 <div className='status-number'>
-                    <h1>{activeSlide + 1}</h1>
+                    <h1>0{activeSlide + 1}</h1>
                 </div>
                 <div className="slide-timer">
                     <div className={`progress-timer${slideTimeOver ? ' over' : ''}`} style={{ width: `${progressWidth}%` }}></div>
                 </div>
                 <div className='status-total'>
-                    <h1>{numberOfObjects}</h1>
+                    <h1>0{numberOfObjects}</h1>
                 </div>
             </motion.div>
 

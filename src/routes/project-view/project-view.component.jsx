@@ -3,7 +3,7 @@ import { Parallax } from 'react-scroll-parallax';
 import React, { useEffect, useRef, useState, useContext } from 'react';
 import { ProjectsContext } from '../../contexts/projects.context'
 import { useParams } from 'react-router-dom';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 
 
 const ProjectView = () => {
@@ -35,40 +35,26 @@ const ProjectView = () => {
         }
     }, [currentUrl, projectsMap]);
 
-    const { name, id, description1, description2, images } = currentProject;
+    const { name, id, description1, description2, images, cover } = currentProject;
 
-
-    const { scrollYProgress } = useViewportScroll();
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
-
+    const { scrollYProgress } = useScroll();
+    const scaleX = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
 
 
     return (
 
         <div className='project-view-container'>
-            <div className='project-images-indicator'>
-                <div className="wrapper">
-                    <motion.div
-                        className="container"
-                        style={{
-                            scale
-                        }}
-                    >
-                        <motion.div
-                            className="item"
-                            style={{
-                                scaleX: scrollYProgress
-                            }}
-                        />
-                    </motion.div>
-                </div>
-            </div>
-            <Parallax id='section' translateY={[-50, 50]} className='project-view-header'>
+            <Parallax translateY={[-50, 50]} className='project-view-header'>
+                <img src={cover} alt="" />
                 <Parallax y={[80, -80]} className='title'>
                     <h1>{name}</h1>
                 </Parallax>
             </Parallax>
-            <Parallax id='section' y={[10, -10]} className='project-view-main'>
+            <Parallax y={[10, -10]} className='project-view-main'>
                 <div className='project-description'>
                     <p>{description1}</p>
                     <p>{description2}</p>
@@ -79,6 +65,8 @@ const ProjectView = () => {
                     }
                 </div>
             </Parallax>
+
+            <motion.div className="progress" style={{ scaleX }} />
         </div>
 
     )

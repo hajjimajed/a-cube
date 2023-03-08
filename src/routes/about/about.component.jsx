@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './about.styles.scss';
 import $ from 'jquery';
-import { motion, useViewportScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import { ReactComponent as Letter } from '../../assets/letter.svg';
 
@@ -103,7 +103,7 @@ const About = () => {
     }, []);
 
 
-    const { scrollYProgress } = useViewportScroll();
+    const { scrollYProgress } = useScroll();
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
     return (

@@ -28,7 +28,7 @@ const Navigation = () => {
 
                     className='navigation-links-container'>
                     <div className='navigation-logo-container'>
-                        <Link to='/' className='navigation-link'><MainLogo className='main-logo' /></Link>
+                        <Link to='/' className='navigation-link'><MainLogo className={`main-logo ${location.pathname === '/works' ? '' : location.pathname.startsWith('/works/') ? 'main-logo-inverted' : ''}`} /></Link>
                     </div>
                     <div className='navigation-sections-container'>
                         <Link to='/works' className='navigation-link'><h1 style={navLinkStyle}>all</h1></Link>
