@@ -8,10 +8,6 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 
 const ProjectView = () => {
 
-
-
-
-
     const { projectsMap } = useContext(ProjectsContext);
     const [currentUrl, setCurrentUrl] = useState('');
     const [currentProject, setCurrentProject] = useState({});
@@ -51,19 +47,47 @@ const ProjectView = () => {
             <Parallax translateY={[-50, 50]} className='project-view-header'>
                 <img src={cover} alt="" />
                 <Parallax y={[80, -80]} className='title'>
-                    <h1>{name}</h1>
+                    <motion.h1
+                        initial={{ opacity: 0, translateY: 20 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        transition={{
+                            duration: 0.3,
+                            delay: 0.5
+                        }}
+                    >{name}</motion.h1>
                 </Parallax>
             </Parallax>
             <Parallax y={[10, -10]} className='project-view-main'>
                 <div className='project-description'>
-                    <p>{description1}</p>
-                    <p>{description2}</p>
+                    <motion.p
+                        initial={{ opacity: 0, translateY: 20 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        transition={{
+                            duration: 0.3,
+                            delay: 1
+                        }}
+                    >{description1}</motion.p>
+                    <motion.p
+                        initial={{ opacity: 0, translateY: 20 }}
+                        animate={{ opacity: 1, translateY: 0 }}
+                        transition={{
+                            duration: 0.3,
+                            delay: 1.2
+                        }}
+                    >{description2}</motion.p>
                 </div>
-                <div className='project-images'>
+                <motion.div
+                    initial={{ opacity: 0, translateY: 50 }}
+                    animate={{ opacity: 1, translateY: 0 }}
+                    transition={{
+                        duration: 0.3,
+                        delay: 1.4
+                    }}
+                    className='project-images'>
                     {images &&
                         images.map(img => <img key={img} src={img} alt="" />)
                     }
-                </div>
+                </motion.div>
             </Parallax>
 
             <motion.div className="progress" style={{ scaleX }} />

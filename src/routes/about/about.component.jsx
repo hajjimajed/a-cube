@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useLayoutEffect } from 'react';
 import './about.styles.scss';
 import $ from 'jquery';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -106,9 +106,19 @@ const About = () => {
     const { scrollYProgress } = useScroll();
     const scale = useTransform(scrollYProgress, [0, 1], [1, 1]);
 
+
+
     return (
-        <div className='about-container'>
-            <div className='indicator'>
+        <motion.div
+            className='about-container'>
+            <motion.div
+                initial={{ translateX: 50, opacity: 0 }}
+                animate={{ translateX: 0, opacity: 1 }}
+                transition={{
+                    duration: 0.5,
+                    delay: 1.5
+                }}
+                className='indicator'>
                 <h1>0{currentSection}</h1>
                 <div className="wrapper">
                     <motion.div
@@ -126,24 +136,52 @@ const About = () => {
                     </motion.div>
                 </div>
                 <h1>05</h1>
-            </div>
+            </motion.div>
             <div className='about-main'>
                 <div className='about-left'>
-                    <div className='about-email' ref={emailRef}>
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{
+                            duration: 0.3,
+                            delay: 1.5
+                        }}
+                        className='about-email' ref={emailRef}>
                         <h1>hello.</h1>
                         <p>contact@artistacube.com</p>
                         <h1>Work Together.</h1>
                         <p>contact@artistacube.com</p>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className='about-right'>
                     <div id='1' className='about-right-first-section'>
-                        <div className='number'>
+                        <motion.div
+                            initial={{ scaleX: 0, opacity: 0 }}
+                            animate={{ scaleX: 1, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 1
+                            }}
+                            className='number'>
                             <h1>01</h1>
-                        </div>
+                        </motion.div>
                         <div className='content'>
-                            <h1>artista cube</h1>
-                            <p>If the classical perspective showed before what there would be after and the
+                            <motion.h1
+                                initial={{ translateX: 150, translateY: -250, scaleY: 0.3 }}
+                                animate={{ translateX: 0, translateY: 0, scaleY: 1 }}
+                                transition={{
+                                    duration: 0.5,
+                                    delay: 0.5
+                                }}
+                            >artista cube</motion.h1>
+                            <motion.p
+                                initial={{ translateY: 50, opacity: 0 }}
+                                animate={{ translateY: 0, opacity: 1 }}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 2
+                                }}
+                            >If the classical perspective showed before what there would be after and the
                                 Photography after what is before, synthetic imaging allows as the first
                                 To see before there will be over, but in such a way as to make us believe that we are
                                 Already after what was before, like the second».
@@ -162,26 +200,54 @@ const About = () => {
                                 syntheses that are photos taken from their interior spaces to show their
                                 designs and their ideas that are created and simulate the real environment of these
                                 interior spaces. These consist of atmosphere, natural lighting and
-                                artificial, etc. and all the above has enabled us to satisfy the needs of our customers.</p>
+                                artificial, etc. and all the above has enabled us to satisfy the needs of our customers.</motion.p>
                         </div>
                     </div>
                     <div id='2' className='about-right-first-section'>
-                        <div className='number'>
+                        <motion.div
+                            initial={{ scaleX: 0, opacity: 0 }}
+                            animate={{ scaleX: 1, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 1
+                            }}
+                            className='number'>
                             <h1>02</h1>
-                        </div>
-                        <div className='content'>
+                        </motion.div>
+                        <motion.div
+                            initial={{ translateY: 50, opacity: 0 }}
+                            animate={{ translateY: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 2
+                            }}
+                            className='content'>
                             <h2>wael badri</h2>
                             <p>Born in 1991.</p>
 
                             <p>Holder of a The National Vocational Master degree, </p>
                             <p>major graduate of the Higher Institute of Arts and Crafts at Sidi bouzid.</p>
-                        </div>
+                        </motion.div>
                     </div>
                     <div id='3' className='about-right-first-section'>
-                        <div className='number'>
+                        <motion.div
+                            initial={{ scaleX: 0, opacity: 0 }}
+                            animate={{ scaleX: 1, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 1
+                            }}
+                            className='number'>
                             <h1>03</h1>
-                        </div>
-                        <div className='content'>
+                        </motion.div>
+                        <motion.div
+                            initial={{ translateY: 50, opacity: 0 }}
+                            animate={{ translateY: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 2
+                            }}
+                            className='content'>
                             <h2>award</h2>
                             <div className='award-section'>
                                 <p>2018</p>
@@ -191,13 +257,27 @@ const About = () => {
                                 <p>2019</p>
                                 <p>Jury member for the Inspireli student competition</p>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                     <div id='4' className='about-right-first-section'>
-                        <div className='number'>
+                        <motion.div
+                            initial={{ scaleX: 0, opacity: 0 }}
+                            animate={{ scaleX: 1, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 1
+                            }}
+                            className='number'>
                             <h1>04</h1>
-                        </div>
-                        <div className='content'>
+                        </motion.div>
+                        <motion.div
+                            initial={{ translateY: 50, opacity: 0 }}
+                            animate={{ translateY: 0, opacity: 1 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 2
+                            }}
+                            className='content'>
                             <h2>We are</h2>
                             <h4>Artista Cube.</h4>
                             <h3>Interior design office</h3>
@@ -231,7 +311,7 @@ const About = () => {
                                     <p>contact@artistacube.com</p>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -254,7 +334,7 @@ const About = () => {
                     </motion.div>
                 </div>
             </motion.section>
-        </div>
+        </motion.div>
     );
 };
 

@@ -51,7 +51,7 @@ function App() {
 
       <div>
         <CustomCursor
-          targets={['.link', 'a', 'Link', 'button', 'section', '.project-preview-image']}
+          targets={['.link', 'a', 'Link', 'button', 'section', 'img']}
           customClass='custom-cursor'
           dimensions={50}
           fill='#FFF'

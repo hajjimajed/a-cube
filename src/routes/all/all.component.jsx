@@ -4,6 +4,8 @@ import ProjectParallax from '../../components/project-parallax/project-parallax.
 import { useContext, useState, useEffect } from 'react';
 import { ProjectsContext } from '../../contexts/projects.context'
 
+import { motion } from 'framer-motion';
+
 const All = () => {
 
     const { projectsMap } = useContext(ProjectsContext)

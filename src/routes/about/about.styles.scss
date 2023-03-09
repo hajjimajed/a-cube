@@ -118,6 +118,7 @@
                     flex-direction: column;
                     justify-content: flex-start;
                     align-items: flex-start;
+                    overflow: hidden;
 
                     .content-email {
                         width: 100%;
@@ -395,6 +396,10 @@
         width: 0%;
     }
 
+    .about-container .about-main .about-right {
+        width: 95%;
+    }
+
     .about-container .about-main .about-right .about-right-first-section .content p {
         font-size: 14px;
     }
@@ -432,6 +437,11 @@
     .about-container .about-footer .about-right-first-section .letter-div {
         margin-left: 20px;
     }
+
+    .about-container .about-main .about-right .about-right-first-section .content h1 {
+        font-size: 90px;
+        line-height: 90px;
+    }
 }
 
 @media(max-width:600px) {
@@ -441,8 +451,8 @@
     }
 
     .about-container .about-main .about-right .about-right-first-section .content h1 {
-        font-size: 80px;
-        line-height: 80px;
+        font-size: 70px;
+        line-height: 70px;
     }
 
     .about-container .about-main .about-right .about-right-first-section .content .content-email h1 {
@@ -464,8 +474,8 @@
 
 @media(max-width:480px) {
     .about-container .about-main .about-right .about-right-first-section .content h1 {
-        font-size: 70px;
-        line-height: 70px;
+        font-size: 50px;
+        line-height: 50px;
     }
 
     .about-container .about-footer .about-right-first-section {
@@ -475,8 +485,8 @@
 
 @media(max-width:440px) {
     .about-container .about-main .about-right .about-right-first-section .content h1 {
-        font-size: 60px;
-        line-height: 60px;
+        font-size: 50px;
+        line-height: 50px;
     }
 
     .about-container .indicator {
@@ -486,8 +496,8 @@
 
 @media(max-width:400px) {
     .about-container .about-main .about-right .about-right-first-section .content h1 {
-        font-size: 50px;
-        line-height: 50px;
+        font-size: 45px;
+        line-height: 45px;
     }
 }
 
