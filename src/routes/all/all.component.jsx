@@ -17,10 +17,12 @@ const All = () => {
 
     return (
         <div className='all-container'>
+            <div className='all-parallax-container'>
 
-            {
-                projects.map((project) => <ProjectParallax key={project.id} project={project} />)
-            }
+                {
+                    projects.map((project) => <ProjectParallax key={project.id} project={project} />)
+                }
+            </div>
 
         </div>
     )

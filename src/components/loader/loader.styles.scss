@@ -21,7 +21,7 @@
         align-items: center;
 
         .logo {
-            width: 15%;
+            width: 18%;
             height: auto;
             overflow: visible;
             stroke: #fff;
@@ -39,5 +39,48 @@
         height: 100%;
         background-color: #252525;
         border-radius: 50%;
+    }
+}
+
+
+@media(max-width:1200px) {
+    .loader-container .loader-background .logo {
+        width: 22%;
+    }
+}
+
+@media(max-width:1000px) {
+    .loader-container .loader-background .logo {
+        width: 38%;
+    }
+}
+
+@media(max-width:800px) {
+    .loader-container .loader-background .logo {
+        width: 33%;
+    }
+}
+
+@media(max-width:700px) {
+    .loader-container .loader-background .logo {
+        width: 36%;
+    }
+}
+
+@media(max-width:600px) {
+    .loader-container .loader-background .logo {
+        width: 40%;
+    }
+}
+
+@media(max-width:400px) {
+    .loader-container .loader-background .logo {
+        width: 45%;
+    }
+}
+
+@media(max-width:300px) {
+    .loader-container .loader-background .logo {
+        width: 50%;
     }
 }

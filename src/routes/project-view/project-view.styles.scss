@@ -7,7 +7,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    margin-top: -100px;
+    margin-top: -140px;
 
     .project-images-indicator {
         position: fixed;
@@ -129,6 +129,95 @@
         height: 10px;
         background: #00000086;
         bottom: 0;
+    }
+
+}
+
+
+@media(max-width:1100px) {
+    .project-view-container .project-view-main .project-description {
+        width: 75%;
+    }
+
+    .project-view-container .project-view-main .project-images {
+        width: 75%;
+    }
+
+    .project-view-container .project-view-header .title h1 {
+        font-size: 35px;
+        line-height: 45px;
+    }
+}
+
+@media(max-width:800px) {
+    .project-view-container .project-view-main .project-description {
+        width: 85%;
+    }
+
+    .project-view-container .project-view-main .project-images {
+        width: 85%;
+    }
+
+    .project-view-container .project-view-header .title h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    .project-view-container .project-view-main .project-description p {
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    .project-view-container .project-view-main .project-images img {
+        margin: 30px 0;
+    }
+}
+
+@media(max-width:600px) {
+    .project-view-container .project-view-main .project-description {
+        width: 90%;
+    }
+
+    .project-view-container .project-view-main .project-images {
+        width: 90%;
+    }
+
+    .project-view-container .project-view-header .title h1 {
+        font-size: 26px;
+        line-height: 30px;
+    }
+
+    .project-view-container .project-view-main .project-description p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .project-view-container .project-view-main .project-images img {
+        margin: 20px 0;
+    }
+}
+
+@media(max-width:450px) {
+
+    .project-view-container .project-view-header .title h1 {
+        font-size: 22px;
+        line-height: 20px;
+    }
+
+    .project-view-container .project-view-main .project-description p {
+        font-size: 12px;
+    }
+
+    .project-view-container .project-view-main .project-images img {
+        margin: 15px 0;
+    }
+}
+
+@media(max-width:360px) {
+
+    .project-view-container .project-view-header .title h1 {
+        font-size: 18px;
+        line-height: 16px;
     }
 
 }

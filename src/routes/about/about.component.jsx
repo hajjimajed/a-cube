@@ -183,8 +183,14 @@ const About = () => {
                         </div>
                         <div className='content'>
                             <h2>award</h2>
-                            <p><span>2018</span> <span>chosen as featured artist</span></p>
-                            <p><span>2019</span> <span>Jury member for the Inspireli student competition</span></p>
+                            <div className='award-section'>
+                                <p>2018</p>
+                                <p>chosen as featured artist</p>
+                            </div>
+                            <div className='award-section'>
+                                <p>2019</p>
+                                <p>Jury member for the Inspireli student competition</p>
+                            </div>
                         </div>
                     </div>
                     <div id='4' className='about-right-first-section'>
@@ -212,6 +218,17 @@ const About = () => {
                                 <div className='we-are-section'>
                                     <p>tel</p>
                                     <p>+216 54 414 119</p>
+                                </div>
+                            </div>
+
+                            <div className='content-email'>
+                                <div>
+                                    <h1>hello.</h1>
+                                    <p>contact@artistacube.com</p>
+                                </div>
+                                <div>
+                                    <h1>Work Together.</h1>
+                                    <p>contact@artistacube.com</p>
                                 </div>
                             </div>
                         </div>
