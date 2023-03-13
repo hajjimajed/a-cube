@@ -5,6 +5,7 @@ import { ProjectsContext } from '../../contexts/projects.context'
 import { useParams } from 'react-router-dom';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
+import ImageLoader from '../../components/image-loader/image-loader.component';
 
 const ProjectView = () => {
 
@@ -41,57 +42,91 @@ const ProjectView = () => {
     });
 
 
+    const [imagesLoaded, setImagesLoaded] = useState(false);
+
+    useEffect(() => {
+        if (images && Array.isArray(images)) {
+            const imageLoaders = images.map((imgSrc) => {
+                const image = new Image();
+                image.src = imgSrc;
+                return new Promise((resolve) => {
+                    image.onload = resolve;
+                });
+            });
+
+            Promise.all(imageLoaders).then(() => {
+                setImagesLoaded(true);
+            });
+        }
+    }, [currentProject, images]);
+
+
+
+
     return (
 
-        <div className='project-view-container'>
-            <Parallax translateY={[-50, 50]} className='project-view-header'>
-                <img src={cover} alt="" />
-                <Parallax y={[80, -80]} className='title'>
-                    <motion.h1
-                        initial={{ opacity: 0, translateY: 20 }}
-                        animate={{ opacity: 1, translateY: 0 }}
-                        transition={{
-                            duration: 0.3,
-                            delay: 0.5
-                        }}
-                    >{name}</motion.h1>
-                </Parallax>
-            </Parallax>
-            <Parallax y={[10, -10]} className='project-view-main'>
-                <div className='project-description'>
-                    <motion.p
-                        initial={{ opacity: 0, translateY: 20 }}
-                        animate={{ opacity: 1, translateY: 0 }}
-                        transition={{
-                            duration: 0.3,
-                            delay: 1
-                        }}
-                    >{description1}</motion.p>
-                    <motion.p
-                        initial={{ opacity: 0, translateY: 20 }}
-                        animate={{ opacity: 1, translateY: 0 }}
-                        transition={{
-                            duration: 0.3,
-                            delay: 1.2
-                        }}
-                    >{description2}</motion.p>
-                </div>
-                <motion.div
-                    initial={{ opacity: 0, translateY: 50 }}
-                    animate={{ opacity: 1, translateY: 0 }}
-                    transition={{
-                        duration: 0.3,
-                        delay: 1.4
-                    }}
-                    className='project-images'>
-                    {images &&
-                        images.map(img => <img key={img} src={img} alt="" />)
-                    }
-                </motion.div>
-            </Parallax>
+        <>
+            {!imagesLoaded && <ImageLoader />}
+            {imagesLoaded && (
+                <div className='project-view-container'>
+                    <Parallax translateY={[-50, 50]} className='project-view-header'>
+                        <img src={cover} alt='' />
+                        <Parallax y={[80, -80]} className='title'>
+                            <motion.h1
+                                initial={{ opacity: 0, translateY: 20 }}
+                                animate={{ opacity: 1, translateY: 0 }}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 0.5,
+                                }}
+                            >
+                                {name}
+                            </motion.h1>
+                        </Parallax>
+                    </Parallax>
+                    <Parallax y={[10, -10]} className='project-view-main'>
+                        <div className='project-description'>
+                            <motion.p
+                                initial={{ opacity: 0, translateY: 20 }}
+                                animate={{ opacity: 1, translateY: 0 }}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1,
+                                }}
+                            >
+                                {description1}
+                            </motion.p>
+                            <motion.p
+                                initial={{ opacity: 0, translateY: 20 }}
+                                animate={{ opacity: 1, translateY: 0 }}
+                                transition={{
+                                    duration: 0.3,
+                                    delay: 1.2,
+                                }}
+                            >
+                                {description2}
+                            </motion.p>
+                        </div>
+                        <motion.div
+                            initial={{ opacity: 0, translateY: 50 }}
+                            animate={{ opacity: 1, translateY: 0 }}
+                            transition={{
+                                duration: 0.3,
+                                delay: 1.4,
+                            }}
+                            className='project-images'
+                        >
+                            {images && Array.isArray(images) && images.length > 0 &&
+                                images.map((img) => (
+                                    <img key={img} src={img} alt='' />
+                                ))}
+                        </motion.div>
+                    </Parallax>
 
-            <motion.div className="progress" style={{ scaleX }} />
-        </div>
+                    <motion.div className='progress' style={{ scaleX }} />
+                </div>
+            )}
+        </>
 
     )
 

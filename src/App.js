@@ -34,20 +34,18 @@ function App() {
 
   return (
     <>
-      {isLoading ? (
-        <Loader />
-      ) : (
-        <div className="App" onScroll={handleScroll} onWheel={handleScroll}>
-          <Routes>
-            <Route path="/" element={<Navigation />}>
-              <Route index element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/works" element={<All />} />
-              <Route path="/works/:projectId" element={<ProjectView />} />
-            </Route>
-          </Routes>
-        </div>
-      )}
+
+      <div className="App" onScroll={handleScroll} onWheel={handleScroll}>
+        <Routes>
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/works" element={<All />} />
+            <Route path="/works/:projectId" element={<ProjectView />} />
+          </Route>
+        </Routes>
+      </div>
+
 
       <div>
         <CustomCursor
