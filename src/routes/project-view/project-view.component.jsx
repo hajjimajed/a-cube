@@ -55,7 +55,9 @@ const ProjectView = () => {
             });
 
             Promise.all(imageLoaders).then(() => {
-                setImagesLoaded(true);
+                setTimeout(() => {
+                    setImagesLoaded(true);
+                }, 3000);
             });
         }
     }, [currentProject, images]);

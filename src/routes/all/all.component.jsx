@@ -28,7 +28,7 @@ const All = () => {
             loadedImagesCount++;
 
             if (loadedImagesCount === totalImages) {
-                setIsLoading(false);
+                setTimeout(() => setIsLoading(false), 3000); // delay the execution of setIsLoading(false) by 3 seconds
             }
         };
 
@@ -50,6 +50,7 @@ const All = () => {
     if (isLoading) {
         return <ImageLoader />;
     }
+
 
     return (
         <div className='all-container'>
